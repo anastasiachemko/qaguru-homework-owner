@@ -19,7 +19,7 @@ public class RegistrationPage {
             numberInput = $("#userNumber"),
             subjectsInput = $("#subjectsInput"),
             hobbiesInputSports = $("[for=hobbies-checkbox-1]"),
-            pictureUpload = $("#uploadPicture"),
+           // pictureUpload = $("#uploadPicture"),
             currentAddressInput = $("#currentAddress"),
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
@@ -86,13 +86,13 @@ public class RegistrationPage {
         return this;
     }
 
-    @Step("Загружаем изображение")
+    /* @Step("Загружаем изображение")
     public RegistrationPage uploadFile(String value) {
         pictureUpload.uploadFromClasspath(value);
 
         return this;
     }
-
+*/
     @Step("Вводим адрес")
     public RegistrationPage typeAddress(String value) {
         currentAddressInput.setValue(value);

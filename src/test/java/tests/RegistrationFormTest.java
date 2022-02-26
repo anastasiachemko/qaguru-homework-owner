@@ -33,7 +33,7 @@ public class RegistrationFormTest extends TestBase {
         registrationPage
                 .setSubject("English")
                 .setHobbiesSports()
-               .uploadFile("rafting.jpg")
+                //.uploadFile("rafting.jpg")
                 .typeAddress("Minsk")
                 .setState("Haryana")
                 .setCity("Karnal")

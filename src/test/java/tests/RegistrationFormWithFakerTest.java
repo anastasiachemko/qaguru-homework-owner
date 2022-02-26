@@ -32,7 +32,7 @@ public class RegistrationFormWithFakerTest extends TestBase {
         registrationPage
                 .setSubject("English")
                 .setHobbiesSports()
-                .uploadFile("rafting.jpg")
+                //.uploadFile("rafting.jpg")
                 .typeAddress(userAddress)
                 .setState("Haryana")
                 .setCity("Karnal")
