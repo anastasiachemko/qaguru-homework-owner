@@ -14,28 +14,22 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
 
+    private static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
+
     @BeforeAll
     static void setUp() {
-        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
-
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
-
         String login = config.login();
         String password = config.password();
-
+        String remoteUrl = System.getProperty("remoteUrl");
         String browser = System.getProperty("browser", "chrome");
         String version = System.getProperty("version", "90");
-        String remoteUrl = System.getProperty("remoteUrl", "selenoid.autotests.cloud/wd/hub");
 
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.browser = browser;
         Configuration.browserVersion = version;
-
-        String url = "https://" + login + ":" + password + "@" + remoteUrl;
-
-        Configuration.remote = url;
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.remote = "https://" + login + ":" + password + "@" + remoteUrl;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
